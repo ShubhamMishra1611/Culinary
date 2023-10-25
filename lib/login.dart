@@ -29,8 +29,8 @@ class LoginScreen extends StatefulWidget {
 final _auth = FirebaseAuth.instance;
 
 class _LoginScreenState extends State<LoginScreen> {
-  String email;
-  String password;
+  String email = '';
+  String password = '';
   bool showSpinner = false;
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           email: email, password: password);
                       if (user != null) {
                         Navigator.pushNamed(context, 'home');
-                      }
+                      }// todo The operand can't be null, so the condition is always 'true'.
                     } catch (e) {
                       print(e);
                     }

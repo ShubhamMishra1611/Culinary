@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-User loggedinUser;
+User loggedinUser = FirebaseAuth.instance.currentUser!;
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
         leading: null,
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.close),
+              icon: const Icon(Icons.close),
               onPressed: () {
                 _auth.signOut();
                 Navigator.pop(context);
@@ -43,10 +43,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 //Implement logout functionality
               }),
         ],
-        title: Text('Home Page'),
+        title: const Text('Home Page'),
         backgroundColor: Colors.lightBlueAccent,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           "Welcome User",
           style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
